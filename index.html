@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahashivratri Proposal for Kush</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Password Section -->
+    <section id="password" class="section active">
+        <div class="stars"></div>
+        <div class="om-watermark">🕉️</div>
+        <div class="particles"></div>
+        <div class="content">
+            <p>This Mahashivratri, only the chosen one may enter…</p>
+            <input type="password" id="password-input" placeholder="Enter Mahadev’s Name">
+            <button id="enter-btn" class="gold-btn">Enter</button>
+            <div id="password-feedback" class="hidden"></div>
+        </div>
+    </section>
+
+    <!-- Proposal Section -->
+    <section id="proposal" class="section">
+        <div class="stars"></div>
+        <div class="om-watermark">🕉️</div>
+        <div class="particles"></div>
+        <div class="content">
+            <h1>Hello Kush 🕉️</h1>
+            <p>Happy Mahashivratri 🤍
+"Our first Mahashivratri together…"<br>"shall we make it the first of forever?”</p>
+            <p class="question">Will you be my Shivji? 🤍</p>
+            <div class="buttons">
+                <button id="yes-btn" class="gold-btn">YES</button>
+                <button id="no-btn" class="gold-btn">NO</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diya Section -->
+    <section id="diya" class="section">
+        <div class="stars"></div>
+        <div class="om-watermark">🕉️</div>
+        <div class="particles"></div>
+        <div class="content">
+            <p>Light these diyas to begin our sacred journey.</p>
+            <div class="diyas">
+                <div class="diya" id="diya1">🪔</div>
+                <div class="diya" id="diya2">🪔</div>
+                <div class="diya" id="diya3">🪔</div>
+            </div>
+            <button id="start-quiz-btn" class="gold-btn hidden">Start Quiz</button>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="section">
+        <div class="stars"></div>
+        <div class="om-watermark">🕉️</div>
+        <div class="particles"></div>
+        <div class="content">
+            <div class="gallery">
+                <img src="1.jpeg" alt="Memory 1" class="memory-img blurred" id="img1">
+                <img src="2.jpeg" alt="Memory 2" class="memory-img blurred" id="img2">
+                <img src="3.jpeg" alt="Memory 3" class="memory-img blurred" id="img3">
+                <img src="4.jpeg" alt="Memory 4" class="memory-img blurred" id="img4">
+                <img src="5.jpeg" alt="Memory 5" class="memory-img blurred" id="img5">
+                <img src="6.jpeg" alt="Memory 6" class="memory-img blurred" id="img6">
+                <img src="7.jpeg" alt="Memory 7" class="memory-img blurred" id="img7">
+                <img src="8.jpeg" alt="Memory 8" class="memory-img blurred" id="img8">
+                <img src="9.jpeg" alt="Memory 9" class="memory-img blurred" id="img9">
+                <img src="10.jpeg" alt="Memory 10" class="memory-img blurred" id="img10">
+            </div>
+            <div id="question-container">
+                <p id="question"></p>
+                <div id="options"></div>
+            </div>
+            <div id="quiz-feedback" class="hidden"></div>
+        </div>
+    </section>
+
+    <!-- Final Section -->
+    <section id="final" class="section">
+        <div class="stars"></div>
+        <div class="om-watermark">🕉️</div>
+        <div class="particles"></div>
+        <div class="ring-glow" id="ring-glow">
+            <div class="ring">💍</div>
+        </div>
+        <div class="content">
+            <p>Just like Shiv chose Parvati,<br>I choose you —<br>not for one day,<br>not for one festival,<br>but for every lifetime.<br><br>Be my strength when I am weak,<br>my calm when I am chaos,<br>my forever in this life and the next.<br><br>Will you walk this journey with me? 🤍🕉️</p>
+            <button id="forever-btn" class="gold-btn">Yes, Forever 🕉️</button>
+        </div>
+    </section>
+
+    <!-- Celebration Section -->
+    <section id="celebration" class="section">
+        <div class="stars"></div>
+        <div class="om-watermark">🕉️</div>
+        <div class="particles"></div>
+        <div class="confetti"></div>
+        <div class="fireworks"></div>
+        <div class="content">
+            <h1>Har Har Mahadev! 🕉️❤️</h1>
+            <p>Congratulations, my Shivji! 🎉<br>You've unlocked our divine forever bond.<br>I'm Forever yours, in every lifetime. 🤍💍</p>
+            <div class="celebration-icons">🪔 ✨ 🕉️ ✨ 💍 ✨ 🪔</div>
+        </div>
+    </section>
+
+    <!-- Mute Button (Corner) -->
+    <button id="mute-btn" class="mute-btn">Mute Music 🔇</button>
+
+    <!-- Audio Elements -->
+    <audio id="bg-music" loop>
+        <source src="Khat.mp3" type="audio/mpeg">
+        <!-- Replace with your own devotional instrumental MP3 URL -->
+    </audio>
+    <audio id="bell-sound">
+        <source src="https://www.freesound.org/data/previews/316/316848_5123451-lq.mp3" type="audio/mpeg">
+        <!-- Replace with your own temple bell sound MP3 URL -->
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
