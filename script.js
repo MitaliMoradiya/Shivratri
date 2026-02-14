@@ -22,10 +22,10 @@ const ringGlow = document.getElementById('ring-glow');
 
 // Wrong Answer Messages (short, funny, teasing him)
 const wrongMessages = [
-    "Wrong! Even Shivji knows better 😏",
+    "Nope! Parvati says it's wrong 😜",,
     "Oops! My love, think harder 😉",
     "Fail! But you're still cute 🥰",
-    "Nope! Parvati would tease you 😜",
+    "Wrong! Even Shivji knows better 😏",
     "Try again! Don't make me laugh 😂",
     "Incorrect! Love guru fail? 😆",
     "Wrong! But I still love you 💕",
@@ -163,15 +163,17 @@ function showQuestion() {
         const btn = document.createElement('button');
         btn.textContent = option;
         btn.classList.add('option');
-        btn.addEventListener('click', () => checkAnswer(index));
+        btn.addEventListener('click', () => checkAnswer(index, btn)); // Pass the button for highlighting
         optionsEl.appendChild(btn);
     });
 }
 
 // Check Answer
-function checkAnswer(selected) {
+function checkAnswer(selected, btn) {
     const q = questions[currentQuestion];
     if (selected === q.correct) {
+        // Highlight the correct answer in green
+        btn.classList.add('correct-highlight');
         quizFeedback.textContent = "One memory unlocked 🕉️✨";
         quizFeedback.classList.remove('hidden');
         unblurImage();
@@ -191,31 +193,51 @@ function checkAnswer(selected) {
     }
 }
 
-// Unblur Image
+// Unblur Image (ensured to apply immediately and fully)
 function unblurImage() {
     imagesUnblurred++;
     const img = document.getElementById(`img${imagesUnblurred}`);
-    img.classList.remove('blurred');
-    img.classList.add('unblurred');
+    if (img) {
+        img.classList.remove('blurred');
+        img.classList.add('unblurred');
+        // Force reflow to ensure changes apply
+        img.style.filter = 'blur(0) brightness(1)';
+    }
 }
 
-// Forever Button (transition to celebration)
+// Forever Button (transition to celebration with enhanced effects)
 foreverBtn.addEventListener('click', () => {
     finalSection.classList.remove('active');
     celebrationSection.classList.add('active');
+    // Trigger additional animations on load
+    setTimeout(() => {
+        document.querySelector('.blessed-img').style.animationPlayState = 'running';
+    }, 500);
 });
 
-// Mute/Unmute Music (now also starts playback if paused)
+// Mute/Unmute Music (now also starts playback if paused, and toggles visual class)
 muteBtn.addEventListener('click', () => {
     if (bgMusic.paused) {
         bgMusic.play().then(() => {
             muteBtn.textContent = "Mute Music 🔇";
+            muteBtn.classList.remove('muted');
+            muteBtn.classList.add('unmuted');
         }).catch(() => {
             // If still blocked, show play icon
             muteBtn.textContent = "Play Music 🎵";
+            muteBtn.classList.remove('muted');
+            muteBtn.classList.add('unmuted');
         });
     } else {
         bgMusic.muted = !bgMusic.muted;
-        muteBtn.textContent = bgMusic.muted ? "Unmute Music 🔊" : "Mute Music 🔇";
+        if (bgMusic.muted) {
+            muteBtn.textContent = "Unmute Music 🔊";
+            muteBtn.classList.remove('unmuted');
+            muteBtn.classList.add('muted');
+        } else {
+            muteBtn.textContent = "Mute Music 🔇";
+            muteBtn.classList.remove('muted');
+            muteBtn.classList.add('unmuted');
+        }
     }
 });
