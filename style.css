@@ -41,6 +41,8 @@ body {
     box-shadow: 0 10px 30px rgba(249, 202, 36, 0.3);
     z-index: 10;
     border: 1px solid #f9ca24;
+    overflow-y: auto; /* Allow scrolling on small screens if content overflows */
+    max-height: 90vh; /* Prevent content from exceeding viewport height */
 }
 
 h1 {
@@ -325,4 +327,126 @@ p {
 }
 
 .glowing-icons {
+    animation: icon-glow 2s infinite alternate, bounce 1s infinite alternate;
+}
+
+/* Divine Blessings Particles */
+.blessings-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.blessings-particles::before {
+    content: '🕉️ 💕 🙏 🕉️ ✨ 💍 🙏 💕 🕉️';
+    position: absolute;
+    font-size: 2rem;
+    animation: divine-float 8s infinite linear;
+}
+
+@keyframes divine-float {
+    0% { transform: translateY(100vh) rotate(0deg); }
+    100% { transform: translateY(-100vh) rotate(360deg); }
+}
+
+@keyframes divine-glow {
+    0% { box-shadow: 0 0 20px rgba(249, 202, 36, 0.5); }
+    100% { box-shadow: 0 0 60px rgba(249, 202, 36, 1); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes text-glow {
+    0% { text-shadow: 0 0 10px rgba(249, 202, 36, 0.5); }
+    100% { text-shadow: 0 0 30px rgba(249, 202, 36, 1); }
+}
+
+@keyframes icon-glow {
+    0% { filter: drop-shadow(0 0 10px rgba(249, 202, 36, 0.5)); }
+    100% { filter: drop-shadow(0 0 30px rgba(249, 202, 36, 1)); }
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
+/* Enhanced Confetti and Fireworks */
+.confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confetti::before {
+    content: '🎉 ✨ 🎊 ✨ 🪔 ✨ 💍 ✨ 🕉️ ✨ 🙏 ✨ 💕 ✨ 🎉';
+    position: absolute;
+    font-size: 2.5rem;
+    animation: fall-confetti 6s infinite linear;
+}
+
+@keyframes fall-confetti {
+    0% { transform: translateY(-100vh); }
+    100% { transform: translateY(100vh); }
+}
+
+.fireworks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.fireworks::after {
+    content: '💥 🌟 💥 🌟 💥 🙏 💥 💕 💥 🕉️';
+    position: absolute;
+    font-size: 4rem;
+    animation: burst-fireworks 5s infinite ease-in-out;
+}
+
+@keyframes burst-fireworks {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1.5); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    p { font-size: 1.1rem; }
+    .question { font-size: 1.3rem; }
+    .gold-btn { padding: 12px 25px; font-size: 1rem; }
+    .diyas { gap: 20px; flex-wrap: wrap; } /* Allow wrapping on very small screens */
+    .diya { font-size: 2.5rem; }
+    .gallery { 
+        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); /* Smaller images, more compact */
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+    .memory-img { max-width: 70px; } /* Cap image size on mobile */
+    .ring-glow { width: 150px; height: 150px; }
+    .ring { font-size: 3rem; }
+    .blessed-img { max-width: 300px; }
+    .blessing-text { font-size: 1rem; }
+    .celebration-icons { font-size: 1.2rem; }
+    .confetti::before, .fireworks::after, .blessings-particles::before { font-size: 1.5rem; }
+    .content { padding: 20px; } /* Reduce padding for more space */
 }
